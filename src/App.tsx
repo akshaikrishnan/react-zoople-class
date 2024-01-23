@@ -9,7 +9,7 @@ function App() {
     <>
       <button onClick={() => setTest(test + 5)}>Change</button>
       <Header name="Name" age={test} setAge={setTest} />
-      <Header name="Hellooooooo" age={test} />
+      <Header name="Hello" age={test} />
     </>
   );
 }
