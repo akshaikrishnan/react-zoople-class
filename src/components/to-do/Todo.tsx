@@ -10,6 +10,12 @@ export default function Todo() {
     setTaskName("");
   };
 
+  const removeTask = (index: number) => {
+    const newTasks = [...tasks];
+    newTasks.splice(index,1);
+    setTasks(newTasks);
+  }
+
   return (
     <div className="container">
       <div className="mb-3">
@@ -30,7 +36,7 @@ export default function Todo() {
           Add Task
         </button>
       </div>
-      <TodoList tasks={tasks} />
+      <TodoList remove={removeTask} tasks={tasks} />
     </div>
   );
 }
