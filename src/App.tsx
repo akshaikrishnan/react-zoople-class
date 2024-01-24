@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/Header";
 
 function App() {
-  const [test, setTest] = useState(1);
+  const [data, setData] = useState<any>([]);
+
+  const fnCall = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await res.json();
+    console.log(data);
+    setData(data);
+  };
+
+  useEffect(() => {
+    fnCall();
+  }, []);
 
   return (
     <>
-      <button onClick={() => setTest(test + 5)}>Change</button>
-      <Header name="Name" age={test} setAge={setTest} />
-      <Header name="Hellooooooo" age={test} />
+      {data.map((post: any) => (
+        <div key={post.id}>{post.title}</div>
+      ))}
     </>
   );
 }
