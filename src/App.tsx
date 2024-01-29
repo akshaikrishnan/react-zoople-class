@@ -22,7 +22,7 @@ function App() {
     <div className="container">
       <div className="row">
         {data.map((data: any) => (
-          <div key={data.id} className="col-3">
+          <div key={data.id} className="col-md-3">
             <div className="card">
               <img className="card-img-top" src={data.url} alt={data.title} />
               <div className="card-body">
