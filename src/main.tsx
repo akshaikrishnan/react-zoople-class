@@ -9,9 +9,9 @@ import Form from "./Form.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    {/* <App /> */}
+    <App />
     {/* <Todo /> */}
     {/* <Form /> */}
-    <First /> 
+    {/* <First />  */}
   </React.StrictMode>
 );
