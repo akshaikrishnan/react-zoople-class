@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
+
 interface TodoListProps {
   tasks: any[];
   remove: (index: number) => void;
@@ -5,9 +8,18 @@ interface TodoListProps {
 }
 
 export default function TodoList({ tasks, remove, doneTask }: TodoListProps) {
+  const { globalValue, setGlobalValue, addToCart } = useContext(GlobalContext);
   return (
     <div className="pt-3">
       <h5 className="text-center mb-3"> My Tasks</h5>
+      <button
+        onClick={() => {
+          setGlobalValue(globalValue + 1);
+          addToCart();
+        }}
+      >
+        context Value : {globalValue}
+      </button>
       {tasks.map((item: any, index: number) => (
         <div
           key={index + item.name}

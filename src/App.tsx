@@ -14,21 +14,23 @@ import GlobalProvider from "./contexts/GlobalContext.tsx";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<First />} />
-            <Route path="/contact" element={<Form />} />
-            <Route path="/todo" element={<Todo />} />
-            <Route path="/blogs" element={<Blogs />}>
-              <Route path="todo" element={<Todo />} />
-              <Route path="contact" element={<Form />} />
-            </Route>
-            <Route path="/blog/:id" element={<BlogDetails />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<First />} />
+              <Route path="/contact" element={<Form />} />
+              <Route path="/todo" element={<Todo />} />
+              <Route path="/blogs" element={<Blogs />}>
+                <Route path="todo" element={<Todo />} />
+                <Route path="contact" element={<Form />} />
+              </Route>
+              <Route path="/blog/:id" element={<BlogDetails />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </GlobalProvider>
     </>
   );
 }

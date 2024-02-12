@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 export default function Navbar() {
+  const { globalValue } = useContext(GlobalContext);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -20,6 +23,7 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
+            <li className="nav-item">Cart : {globalValue}</li>
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
                 Home

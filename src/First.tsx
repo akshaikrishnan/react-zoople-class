@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import reactLogo from "./assets/react.svg";
+import { GlobalContext } from "./contexts/GlobalContext";
 
 export default function first() {
+  const { globalValue } = useContext(GlobalContext);
   return (
     <>
       <main className="container py-5">
         <div className="d-flex justify-content-between align-items-center">
           <div className="text-center">
-            <h1>Your Name</h1>
+            <h1>Your Name</h1> {globalValue}
             <p>Your Profession</p>
           </div>
           <div>
