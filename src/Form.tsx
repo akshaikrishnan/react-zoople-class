@@ -6,13 +6,19 @@ export default function Form() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormValues>({
     defaultValues: {
       name: "",
       email: "",
       message: "",
     },
   });
+
+  interface FormValues {
+    name: string;
+    email: string;
+    message: string;
+  }
 
   return (
     <>
@@ -56,6 +62,10 @@ export default function Form() {
                   className="form-control"
                   {...register("email", {
                     required: { value: true, message: "Required field" },
+                    pattern: {
+                      value: /\S+@\S+\.\S+/,
+                      message: "Invalid email format",
+                    },
                   })}
                   placeholder="email"
                 />
