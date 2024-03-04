@@ -4,14 +4,13 @@ export const GlobalContext = createContext<any>(null as any);
 
 export default function GlobalProvider({ children }: any) {
   const [globalValue, setGlobalValue] = useState(0);
-  const [globalValue2, setGlobal2Value] = useState(0);
 
-  const addToCart = () => alert("added");
+  // function addTask(task: { name: string; isCompleted: boolean }) {
+  //   setGlobalValue([...globalValue, task]);
+  // }
 
   return (
-    <GlobalContext.Provider
-      value={{ globalValue, setGlobalValue, globalValue2, addToCart }}
-    >
+    <GlobalContext.Provider value={{ globalValue, setGlobalValue }}>
       {children}
     </GlobalContext.Provider>
   );
